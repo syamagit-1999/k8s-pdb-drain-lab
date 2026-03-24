@@ -1,0 +1,54 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pdb-deploy-a
+  namespace: pdb-lab
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: deploy-a
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pdb-deploy-b
+  namespace: pdb-lab
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: deploy-b
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pdb-deploy-c
+  namespace: pdb-lab
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: deploy-c
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pdb-sts-a
+  namespace: pdb-lab
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: sts-a
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pdb-sts-b
+  namespace: pdb-lab
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: sts-b

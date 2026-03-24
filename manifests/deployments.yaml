@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-a
+  namespace: pdb-lab
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-a
+  template:
+    metadata:
+      labels:
+        app: deploy-a
+    spec:
+      nodeSelector:
+        drain-target: "true"
+      containers:
+      - name: app
+        image: nginx:1.27
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-b
+  namespace: pdb-lab
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-b
+  template:
+    metadata:
+      labels:
+        app: deploy-b
+    spec:
+      nodeSelector:
+        drain-target: "true"
+      containers:
+      - name: app
+        image: nginx:1.27
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-c
+  namespace: pdb-lab
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-c
+  template:
+    metadata:
+      labels:
+        app: deploy-c
+    spec:
+      nodeSelector:
+        drain-target: "true"
+      containers:
+      - name: app
+        image: nginx:1.27
+        ports:
+        - containerPort: 80

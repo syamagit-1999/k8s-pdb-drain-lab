@@ -1,0 +1,10 @@
+# Local temp/runtime artifacts
+.tmp/
+
+# Backup artifacts generated during manual runs
+pdb-backup.yaml
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
